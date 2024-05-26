@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.qingaren.middlewara.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig
