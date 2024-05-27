@@ -1,7 +1,6 @@
 package com.qingaren.middlewara.dynamic.thread.pool.sdk.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
  * @projectName: dynamic-thread-pool

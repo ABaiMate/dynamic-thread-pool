@@ -1,4 +1,4 @@
-package com.qingaren.middlewara.dynamic.thread.pool.sdk.trigger;
+package com.qingaren.middlewara.dynamic.thread.pool.sdk.trigger.job;
 
 import com.alibaba.fastjson.JSON;
 import com.qingaren.middlewara.dynamic.thread.pool.sdk.domain.IDynamicThreadPoolService;
