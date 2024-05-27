@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="dynamic-thread-pool" options="-parameters" />
+      <module name="dynamic-thread-pool" options="" />
       <module name="dynamic-thread-pool-spring-boot-starter" options="-parameters" />
       <module name="dynamic-thread-pool-test" options="-parameters" />
     </option>
