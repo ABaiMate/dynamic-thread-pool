@@ -1,7 +1,6 @@
 package com.qingaren.test;
 
-import com.qingaren.middlewara.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
-import com.qingaren.middlewara.dynamic.thread.pool.sdk.trigger.listener.ThreadPoolConfigAdjustListener;
+import com.qingaren.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
