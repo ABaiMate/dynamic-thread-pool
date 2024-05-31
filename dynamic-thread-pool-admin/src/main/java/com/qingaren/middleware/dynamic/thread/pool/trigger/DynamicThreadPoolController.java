@@ -20,7 +20,7 @@ import java.util.List;
 public class DynamicThreadPoolController {
 
     @Resource
-    private RedissonClient redissonClient;
+    public RedissonClient redissonClient;
 
     /**
      * 查询线程池数据
@@ -81,25 +81,26 @@ public class DynamicThreadPoolController {
      * "maximumPoolSize": 10
      * }'
      */
-    @RequestMapping(value = "update_thread_pool_config", method = RequestMethod.POST)
-    public Response<Boolean> updateThreadPoolConfig(@RequestBody ThreadPoolConfigEntity request) {
-        try {
-            log.info("修改线程池配置开始 {} {} {}", request.getAppName(), request.getThreadPoolName(), JSON.toJSONString(request));
-            RTopic topic = redissonClient.getTopic("DYNAMIC_THREAD_POOL_REDIS_TOPIC" + "_" + request.getAppName());
-            topic.publish(request);
-            log.info("修改线程池配置完成 {} {}", request.getAppName(), request.getThreadPoolName());
-            return Response.<Boolean>builder()
-                    .code(Response.Code.SUCCESS.getCode())
-                    .info(Response.Code.SUCCESS.getInfo())
-                    .data(true)
-                    .build();
-        } catch (Exception e) {
-            log.error("修改线程池配置异常 {}", JSON.toJSONString(request), e);
-            return Response.<Boolean>builder()
-                    .code(Response.Code.UN_ERROR.getCode())
-                    .info(Response.Code.UN_ERROR.getInfo())
-                    .data(false)
-                    .build();
+        @RequestMapping(value = "update_thread_pool_config", method = RequestMethod.POST)
+        public Response<Boolean> updateThreadPoolConfig(@RequestBody ThreadPoolConfigEntity request) {
+            try {
+                log.info("修改线程池配置开始 {} {} {}", request.getAppName(), request.getThreadPoolName(), JSON.toJSONString(request));
+                RTopic topic = redissonClient.getTopic("DYNAMIC_THREAD_POOL_REDIS_TOPIC" + "_" + request.getAppName());
+                long publish = topic.publish(request);
+                log.info("修改线程池配置完成 {} {}", request.getAppName(), request.getThreadPoolName());
+                return Response.<Boolean>builder()
+                        .code(Response.Code.SUCCESS.getCode())
+                        .info(Response.Code.SUCCESS.getInfo())
+                        .data(true)
+                        .build();
+            } catch (Exception e) {
+                log.error("修改线程池配置异常 {}", JSON.toJSONString(request), e);
+                return Response.<Boolean>builder()
+                        .code(Response.Code.UN_ERROR.getCode())
+                        .info(Response.Code.UN_ERROR.getInfo())
+                        .data(false)
+                        .build();
+            }
         }
-    }
+
 }

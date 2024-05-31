@@ -49,6 +49,7 @@ public class Application {
 
     }
 
+
     @Data
     @ConfigurationProperties(prefix = "redis.sdk.config", ignoreInvalidFields = true)
     public static class RedisClientConfigProperties {
